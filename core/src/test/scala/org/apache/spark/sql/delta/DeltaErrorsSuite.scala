@@ -173,6 +173,7 @@ trait DeltaErrorsSuiteBase
            |these columns or disable Change Data Feed on the table by setting
            |delta.enableChangeDataFeed to false.""".stripMargin)
     }
+  }
     {
       val e = intercept[DeltaAnalysisException] {
         throw DeltaErrors.multipleCDCBoundaryException("sample")
