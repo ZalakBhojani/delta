@@ -141,7 +141,7 @@ trait DeltaErrorsSuiteBase
     testUrls()
   }
 
-  test("test DeltaErrors methods") {
+  test("test DeltaErrors methods part  part 1") {
     {
       val e = intercept[DeltaIllegalStateException] {
         throw DeltaErrors.tableAlreadyContainsCDCColumns(Seq("col1", "col2"))
@@ -1467,6 +1467,9 @@ trait DeltaErrorsSuiteBase
       assert(e.getMessage ==
         "Multi-column In predicates are not supported in the dummyOp condition.")
     }
+  }
+
+  test("test DeltaErrors methods part 2") {
     {
       val e = intercept[DeltaAnalysisException] {
         throw DeltaErrors.newNotNullViolated(10L, "table1", UnresolvedAttribute("col1"))
