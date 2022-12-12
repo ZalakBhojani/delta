@@ -174,6 +174,7 @@ trait DeltaErrorsSuiteBase
            |delta.enableChangeDataFeed to false.""".stripMargin)
     }
   }
+    test("test DeltaErrors methods part 2") {
     {
       val e = intercept[DeltaAnalysisException] {
         throw DeltaErrors.multipleCDCBoundaryException("sample")
