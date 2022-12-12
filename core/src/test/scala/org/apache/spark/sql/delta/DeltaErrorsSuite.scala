@@ -159,7 +159,6 @@ trait DeltaErrorsSuiteBase
            |Change Data Feed on the table rename/drop these columns.
            |""".stripMargin)
     }
-  test("test DeltaErrors methods part 1") {
     {
       val e = intercept[DeltaIllegalStateException] {
         throw DeltaErrors.cdcColumnsInData(Seq("col1", "col2"))
@@ -173,8 +172,6 @@ trait DeltaErrorsSuiteBase
            |these columns or disable Change Data Feed on the table by setting
            |delta.enableChangeDataFeed to false.""".stripMargin)
     }
-  }
-    test("test DeltaErrors methods part 2") {
     {
       val e = intercept[DeltaAnalysisException] {
         throw DeltaErrors.multipleCDCBoundaryException("sample")
@@ -1753,6 +1750,8 @@ trait DeltaErrorsSuiteBase
       assert(e.getMessage ==
         "Multi-column In predicates are not supported in the dummyOp condition.")
     }
+  }
+  test("test DeltaErrors methods part 2") {
     {
       val e = intercept[DeltaAnalysisException] {
         throw DeltaErrors.newNotNullViolated(10L, "table1", UnresolvedAttribute("col1"))
